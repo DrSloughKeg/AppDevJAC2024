@@ -10,6 +10,7 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_My Recipes" />
             <MenuItem Header="_Create New Recipe" />
+            <MenuItem Header="_Search the Web" />
             <MenuItem Header="_Export" />
 
         </Menu>
@@ -18,6 +19,22 @@
                 <TextBlock Name="LblStatus" />
             </StatusBarItem>
         </StatusBar>
+        <Border DockPanel.Dock="Left" BorderThickness="0.5">
+            <Grid Width="340" Margin="0,0,0,0">
+                <Label Content="Selected Recipe" HorizontalAlignment="Center" Margin="0,10,0,0" />
+                <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="WrapWithOverflow">Description; this is where the description of your dish will go. You can write a long paragraph here and it will text wrap. Yay!</TextBlock>
+                <TextBlock HorizontalAlignment="Center" Margin="0,80,0,0" TextWrapping="WrapWithOverflow">Instructions; <LineBreak /> Step 1. Chop vegetables? <LineBreak/> Step 2. Something else</TextBlock>
+                <ListView Margin="0, 150, 0, 0">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Ingredients" Width="180"/>
+                            <GridViewColumn Header="Quantity" Width="60" />
+                            <GridViewColumn Header="Units" Width="40" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </Border>
         <Border DockPanel.Dock="Right" BorderBrush="Gray" BorderThickness="0.5">
             <Grid Width="240" Margin="10,0,0,0">
                 <TextBox Name="TbxName" HorizontalAlignment="Left" Height="23" Margin="79,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"  />
@@ -26,12 +43,11 @@
                 <Button Name="BtnUpdatePerson" IsEnabled="False" Content="Examine"  HorizontalAlignment="Left" Margin="79,158,0,0" VerticalAlignment="Top" Width="120"  />
             </Grid>
         </Border>
-
         <ListView Name="LvPeople" SelectionMode="Single">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="150"  />
-                    <GridViewColumn Header="Description" Width="300"  />
+                    <GridViewColumn Header="Description" Width="240"  />
                 </GridView>
             </ListView.View>
         </ListView>
